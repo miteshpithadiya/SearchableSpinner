@@ -6,7 +6,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 # Gradle
     dependencies {
         ...
-        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.0'
+        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.0.2'
     }
 
 # Usage
@@ -15,6 +15,8 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
             android:layout_height="wrap_content" />
 
 # Changelog
+ * <b>1.0.2</b>
+    * Resolved the multidex issue.
  * <b>1.0.0</b>
     * Initial Release
 
