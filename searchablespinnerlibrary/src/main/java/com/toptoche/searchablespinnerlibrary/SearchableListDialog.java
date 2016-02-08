@@ -6,7 +6,6 @@ import android.app.DialogFragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +20,6 @@ import android.widget.SearchView;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by miteshp on 4/20/2015.
- */
 public class SearchableListDialog extends DialogFragment implements
         SearchView.OnQueryTextListener, SearchView.OnCloseListener {
 
@@ -58,7 +54,6 @@ public class SearchableListDialog extends DialogFragment implements
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -11,9 +11,6 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by miteshp on 8/28/2015.
- */
 public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         SearchableListDialog.SearchableItem {
 
