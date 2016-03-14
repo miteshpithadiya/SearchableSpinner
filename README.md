@@ -1,4 +1,6 @@
-# SearchableSpinner
+# SearchableSpinner 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SearchableSpinner-green.svg?style=true)](https://android-arsenal.com/details/1/3272)
+
 Spinner with searchable items.
 
 Searchable Spinner is a dialog spinner with the search feature which allows to search the items loaded in the spinner.
