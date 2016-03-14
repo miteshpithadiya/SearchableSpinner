@@ -8,12 +8,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/sample" />
             <option value="$PROJECT_DIR$/searchablespinnerlibrary" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/sample" />
             <option value="$PROJECT_DIR$/searchablespinnerlibrary" />
           </set>
         </option>
