@@ -18,6 +18,9 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+    searchableSpinner.setTitle("Select Item");
+    searchableSpinner.setPositiveButton("OK");
+    
 # Changelog
  * <b>1.1.0</b>
     * New Feature to set the text of the title.
