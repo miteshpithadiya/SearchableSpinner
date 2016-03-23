@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -33,6 +34,12 @@ public class SearchableListDialog extends DialogFragment implements
 
     private SearchView _searchView;
 
+    private String _strTitle;
+
+    private String _strPositiveButtonText;
+
+    private DialogInterface.OnClickListener _onClickListener;
+
     public SearchableListDialog() {
 
     }
@@ -52,6 +59,7 @@ public class SearchableListDialog extends DialogFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -74,14 +82,29 @@ public class SearchableListDialog extends DialogFragment implements
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setView(rootView);
 
-        alertDialog.setPositiveButton("CLOSE", null);
+        String strPositiveButton = _strPositiveButtonText == null ? "CLOSE" : _strPositiveButtonText;
+        alertDialog.setPositiveButton(strPositiveButton, _onClickListener);
 
-        alertDialog.setTitle("Select Item");
+        String strTitle = _strTitle == null ? "Select Item" : _strTitle;
+        alertDialog.setTitle(strTitle);
 
         final AlertDialog dialog = alertDialog.create();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams
                 .SOFT_INPUT_STATE_HIDDEN);
         return dialog;
+    }
+
+    public void setTitle(String strTitle) {
+        _strTitle = strTitle;
+    }
+
+    public void setPositiveButton(String strPositiveButtonText) {
+        _strPositiveButtonText = strPositiveButtonText;
+    }
+
+    public void setPositiveButton(String strPositiveButtonText, DialogInterface.OnClickListener onClickListener) {
+        _strPositiveButtonText = strPositiveButtonText;
+        _onClickListener = onClickListener;
     }
 
     public void setOnSearchableItemClickListener(SearchableItem searchableItem) {

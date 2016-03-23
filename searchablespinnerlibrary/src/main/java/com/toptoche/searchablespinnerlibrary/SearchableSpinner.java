@@ -2,6 +2,7 @@ package com.toptoche.searchablespinnerlibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +17,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     private Context _context;
     private List _items;
+    private SearchableListDialog _searchableListDialog;
 
     public SearchableSpinner(Context context) {
         super(context);
@@ -37,6 +39,9 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     private void init() {
         _items = new ArrayList();
+        _searchableListDialog = SearchableListDialog.newInstance
+                (_items);
+        _searchableListDialog.setOnSearchableItemClickListener(this);
         setOnTouchListener(this);
     }
 
@@ -52,10 +57,8 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
                         _items.add(adapter.getItem(i));
                     }
                 }
-                SearchableListDialog searchableListDialog = SearchableListDialog.newInstance
-                        (_items);
-                searchableListDialog.setOnSearchableItemClickListener(this);
-                searchableListDialog.show(((Activity) _context).getFragmentManager(), "TAG");
+
+                _searchableListDialog.show(((Activity) _context).getFragmentManager(), "TAG");
             }
         }
         return true;
@@ -64,5 +67,17 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     @Override
     public void onSearchableItemClicked(Object item, int position) {
         setSelection(_items.indexOf(item));
+    }
+
+    public void setTitle(String strTitle) {
+        _searchableListDialog.setTitle(strTitle);
+    }
+
+    public void setPositiveButton(String strPositiveButtonText) {
+        _searchableListDialog.setPositiveButton(strPositiveButtonText);
+    }
+
+    public void setPositiveButton(String strPositiveButtonText, DialogInterface.OnClickListener onClickListener) {
+        _searchableListDialog.setPositiveButton(strPositiveButtonText, onClickListener);
     }
 }
