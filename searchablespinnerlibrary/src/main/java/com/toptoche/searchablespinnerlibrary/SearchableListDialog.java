@@ -76,6 +76,15 @@ public class SearchableListDialog extends DialogFragment implements
         // Getting the layout inflater to inflate the view in an alert dialog.
         LayoutInflater inflater = LayoutInflater.from(getActivity());
 
+        // Crash on orientation change #7
+        // Change Start
+        // Description: As the instance was re initializing to null on rotating the device,
+        // getting the instance from the saved instance
+        if (null != savedInstanceState) {
+            _searchableItem = (SearchableItem) savedInstanceState.getSerializable("item");
+        }
+        // Change End
+
         View rootView = inflater.inflate(R.layout.searchable_list_dialog, null);
         setData(rootView);
 
@@ -93,6 +102,16 @@ public class SearchableListDialog extends DialogFragment implements
                 .SOFT_INPUT_STATE_HIDDEN);
         return dialog;
     }
+
+    // Crash on orientation change #7
+    // Change Start
+    // Description: Saving the instance of searchable item instance.
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable("item", _searchableItem);
+        super.onSaveInstanceState(outState);
+    }
+    // Change End
 
     public void setTitle(String strTitle) {
         _strTitle = strTitle;
@@ -170,7 +189,7 @@ public class SearchableListDialog extends DialogFragment implements
         return true;
     }
 
-    public interface SearchableItem<T> {
+    public interface SearchableItem<T> extends Serializable {
         void onSearchableItemClicked(T item, int position);
     }
 
