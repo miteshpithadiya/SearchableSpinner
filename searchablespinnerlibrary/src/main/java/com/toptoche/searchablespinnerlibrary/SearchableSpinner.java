@@ -2,6 +2,7 @@ package com.toptoche.searchablespinnerlibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -47,7 +48,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (event.getAction() == MotionEvent.ACTION_UP) {
             ArrayAdapter adapter = (ArrayAdapter) getAdapter();
 
             if (null != adapter) {
@@ -62,7 +63,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
                 }
                 // Change end.
 
-                _searchableListDialog.show(((Activity) _context).getFragmentManager(), "TAG");
+                _searchableListDialog.show(scanForActivity(_context).getFragmentManager(), "TAG");
             }
         }
         return true;
@@ -83,5 +84,16 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     public void setPositiveButton(String strPositiveButtonText, DialogInterface.OnClickListener onClickListener) {
         _searchableListDialog.setPositiveButton(strPositiveButtonText, onClickListener);
+    }
+
+    private Activity scanForActivity(Context cont) {
+        if (cont == null)
+            return null;
+        else if (cont instanceof Activity)
+            return (Activity)cont;
+        else if (cont instanceof ContextWrapper)
+            return scanForActivity(((ContextWrapper)cont).getBaseContext());
+
+        return null;
     }
 }
