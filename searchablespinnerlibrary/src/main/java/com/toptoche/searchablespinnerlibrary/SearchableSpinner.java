@@ -74,6 +74,10 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         setSelection(_items.indexOf(item));
     }
 
+    public void setHideBlackBar(boolean hideBlackBar) {
+        _searchableListDialog.setHideBlackBar(hideBlackBar);
+    }
+
     public void setTitle(String strTitle) {
         _searchableListDialog.setTitle(strTitle);
     }
