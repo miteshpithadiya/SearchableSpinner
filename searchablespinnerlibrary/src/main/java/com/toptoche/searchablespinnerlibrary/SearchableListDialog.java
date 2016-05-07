@@ -40,6 +40,8 @@ public class SearchableListDialog extends DialogFragment implements
 
     private DialogInterface.OnClickListener _onClickListener;
 
+    private boolean _hideBlackBar = false;
+
     public SearchableListDialog() {
 
     }
@@ -117,6 +119,10 @@ public class SearchableListDialog extends DialogFragment implements
         _strTitle = strTitle;
     }
 
+    public void setHideBlackBar(boolean hideBlackBar) {
+        _hideBlackBar = hideBlackBar;
+    }
+
     public void setPositiveButton(String strPositiveButtonText) {
         _strPositiveButtonText = strPositiveButtonText;
     }
@@ -153,6 +159,7 @@ public class SearchableListDialog extends DialogFragment implements
         //create the adapter by passing your ArrayList data
         listAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,
                 items);
+
         //attach the adapter to the list
         _listViewItems.setAdapter(listAdapter);
 
@@ -180,11 +187,14 @@ public class SearchableListDialog extends DialogFragment implements
 
     @Override
     public boolean onQueryTextChange(String s) {
-//        listAdapter.filterData(s);
         if (TextUtils.isEmpty(s)) {
             _listViewItems.clearTextFilter();
         } else {
-            _listViewItems.setFilterText(s);
+            if (_hideBlackBar) {
+                ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(s);
+            } else {
+                _listViewItems.setFilterText(s);
+            }
         }
         return true;
     }
