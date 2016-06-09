@@ -22,6 +22,10 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     searchableSpinner.setPositiveButton("OK");
     
 # Changelog
+ * <b>1.3.0</b>
+    * Added hint feature.
+    * Removed the transparent black view appearing while typing.
+    * Added a new feature for text changed listener.
  * <b>1.2.0</b>
     * Prevented crashing when changing the orientation when the dialog is visible on screen (Issue #7).
     * Data now getting refreshed on setting the adapter again (Issue #6).

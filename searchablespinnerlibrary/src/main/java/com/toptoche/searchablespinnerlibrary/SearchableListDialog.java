@@ -32,6 +32,8 @@ public class SearchableListDialog extends DialogFragment implements
 
     private SearchableItem _searchableItem;
 
+    private OnSearchTextChanged _onSearchTextChanged;
+
     private SearchView _searchView;
 
     private String _strTitle;
@@ -130,6 +132,10 @@ public class SearchableListDialog extends DialogFragment implements
         this._searchableItem = searchableItem;
     }
 
+    public void setOnSearchTextChangedListener(OnSearchTextChanged onSearchTextChanged) {
+        this._onSearchTextChanged = onSearchTextChanged;
+    }
+
     private void setData(View rootView) {
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context
                 .SEARCH_SERVICE);
@@ -182,9 +188,13 @@ public class SearchableListDialog extends DialogFragment implements
     public boolean onQueryTextChange(String s) {
 //        listAdapter.filterData(s);
         if (TextUtils.isEmpty(s)) {
-            _listViewItems.clearTextFilter();
+//                _listViewItems.clearTextFilter();
+            ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(null);
         } else {
-            _listViewItems.setFilterText(s);
+            ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(s);
+        }
+        if (null != _onSearchTextChanged) {
+            _onSearchTextChanged.onSearchTextChanged(s);
         }
         return true;
     }
@@ -193,4 +203,7 @@ public class SearchableListDialog extends DialogFragment implements
         void onSearchableItemClicked(T item, int position);
     }
 
+    public interface OnSearchTextChanged {
+        void onSearchTextChanged(String strText);
+    }
 }
