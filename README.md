@@ -8,19 +8,22 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 ![Alt text](https://github.com/miteshpithadiya/SearchableSpinner/blob/master/searchablespinnerlibrary/src/main/res/nobleltevzwLMY47XMeditab02192016201518.gif "Searchable Spinner")
 
 # Gradle
+```groovy
     dependencies {
         ...
-        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.2.0'
+        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.0'
     }
-
+```
 # Usage
+```xml
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
+```
+```java
     searchableSpinner.setTitle("Select Item");
     searchableSpinner.setPositiveButton("OK");
-    
+```
 # Changelog
  * <b>1.3.0</b>
     * Added hint feature.
