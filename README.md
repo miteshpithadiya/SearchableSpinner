@@ -10,7 +10,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 # Gradle
     dependencies {
         ...
-        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.2.0'
+        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
     }
 
 # Usage
@@ -22,6 +22,8 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     searchableSpinner.setPositiveButton("OK");
     
 # Changelog
+ * <b>1.3.1</b>
+    * Bug fixes.
  * <b>1.3.0</b>
     * Added hint feature.
     * Removed the transparent black view appearing while typing.

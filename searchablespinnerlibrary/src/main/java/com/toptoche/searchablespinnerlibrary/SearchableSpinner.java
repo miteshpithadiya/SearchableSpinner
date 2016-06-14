@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,12 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
             }
         }
         return true;
+    }
+
+    @Override
+    public void setAdapter(SpinnerAdapter adapter) {
+        super.setAdapter(adapter);
+        _arrayAdapter = (ArrayAdapter) adapter;
     }
 
     @Override
