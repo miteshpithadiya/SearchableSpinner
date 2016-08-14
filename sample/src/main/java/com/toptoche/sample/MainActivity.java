@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 		
-		//Adding more sample change #15
-		//Change Start
-		SearchableSpinner searchableSpinner = (SearchableSpinner) findViewById(R.id.spinner);
+	//Adding more sample change #15
+	//Change Start
+	SearchableSpinner searchableSpinner = (SearchableSpinner) findViewById(R.id.spinner);
         searchableSpinner.setTitle("Choose");
         searchableSpinner.setPositiveButton("OK");
         searchableSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-		//change end
+	//change end
     }
 }
