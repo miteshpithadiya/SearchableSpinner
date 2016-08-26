@@ -157,8 +157,7 @@ public class SearchableListDialog extends DialogFragment implements
         _listViewItems = (ListView) rootView.findViewById(R.id.listItems);
 
         //create the adapter by passing your ArrayList data
-        listAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,
-                items);
+        listAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, items);
         //attach the adapter to the list
         _listViewItems.setAdapter(listAdapter);
 
@@ -186,9 +185,7 @@ public class SearchableListDialog extends DialogFragment implements
 
     @Override
     public boolean onQueryTextChange(String s) {
-//        listAdapter.filterData(s);
         if (TextUtils.isEmpty(s)) {
-//                _listViewItems.clearTextFilter();
             ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(null);
         } else {
             ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(s);
@@ -197,13 +194,5 @@ public class SearchableListDialog extends DialogFragment implements
             _onSearchTextChanged.onSearchTextChanged(s);
         }
         return true;
-    }
-
-    public interface SearchableItem<T> extends Serializable {
-        void onSearchableItemClicked(T item, int position);
-    }
-
-    public interface OnSearchTextChanged {
-        void onSearchTextChanged(String strText);
     }
 }
