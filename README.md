@@ -18,8 +18,15 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-    searchableSpinner.setTitle("Select Item");
-    searchableSpinner.setPositiveButton("OK");
+    searchableSpinner.setHint("Please, select something"); // Hint
+    searchableSpinner.setTitle("Select Item"); // Change the title of dialog
+    searchableSpinner.setPositiveButton("OK"); // Change the name of dialog "close button"
+    searchableSpinner.setOnSearchTextChangedListener(this); // Listener to get text that is inputted on search
+    searchableSpinner.setAdapter(new ArrayAdapter<>[..]); // Set adapter of list
+    searchableSpinner.searchableItemClick(3); // If you want set a selection by position
+    searchableSpinner.setPositiveButton("Hi!", new DialogInterface.OnClickListener[...]); // Change the name of dialog "close button" and use a listener to click event
+    
+    
     
 # Changelog
  * <b>1.3.1</b>
