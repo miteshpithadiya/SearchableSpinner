@@ -5,7 +5,7 @@ Spinner with searchable items.
 
 Searchable Spinner is a dialog spinner with the search feature which allows to search the items loaded in the spinner.
 
-![Alt text](https://github.com/miteshpithadiya/SearchableSpinner/blob/master/searchablespinnerlibrary/src/main/res/nobleltevzwLMY47XMeditab02192016201518.gif "Searchable Spinner")
+![Alt text](https://github.com/pedrofsn/SearchableSpinner/raw/master/image.gif "Searchable Spinner")
 
 # Gradle
     dependencies {
