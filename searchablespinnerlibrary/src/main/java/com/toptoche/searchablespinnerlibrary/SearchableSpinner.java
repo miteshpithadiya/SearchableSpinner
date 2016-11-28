@@ -168,4 +168,11 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
             return super.getSelectedItem();
         }
     }
+
+
+    public void setDialogAdapterFactory(SearchableListDialog.AdapterFactory adapterFactory){
+        if(_searchableListDialog != null){
+            _searchableListDialog.setAdapterFactoty(adapterFactory);
+        }
+    }
 }

@@ -32,6 +32,8 @@ public class SearchableListDialog extends DialogFragment implements
 
     private SearchableItem _searchableItem;
 
+    private AdapterFactory _adapterFactory;
+
     private OnSearchTextChanged _onSearchTextChanged;
 
     private SearchView _searchView;
@@ -157,8 +159,12 @@ public class SearchableListDialog extends DialogFragment implements
         _listViewItems = (ListView) rootView.findViewById(R.id.listItems);
 
         //create the adapter by passing your ArrayList data
-        listAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,
-                items);
+        if(_adapterFactory != null){
+            listAdapter = _adapterFactory.newInstance(items);
+        }else {
+            listAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,
+                    items);
+        }
         //attach the adapter to the list
         _listViewItems.setAdapter(listAdapter);
 
@@ -199,11 +205,19 @@ public class SearchableListDialog extends DialogFragment implements
         return true;
     }
 
+    public void setAdapterFactoty(AdapterFactory adapterFactoty){
+        this._adapterFactory = adapterFactoty;
+    }
+
     public interface SearchableItem<T> extends Serializable {
         void onSearchableItemClicked(T item, int position);
     }
 
     public interface OnSearchTextChanged {
         void onSearchTextChanged(String strText);
+    }
+
+    public interface AdapterFactory{
+        public ArrayAdapter newInstance(List items);
     }
 }
