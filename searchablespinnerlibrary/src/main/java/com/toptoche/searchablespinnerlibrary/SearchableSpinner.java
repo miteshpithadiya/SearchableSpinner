@@ -113,6 +113,11 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         }
     }
 
+    public void resetAdapter(SpinnerAdapter adapter) {
+        _isDirty = false;
+        setAdapter(adapter);
+    }
+
     @Override
     public void onSearchableItemClicked(Object item, int position) {
         setSelection(_items.indexOf(item));
