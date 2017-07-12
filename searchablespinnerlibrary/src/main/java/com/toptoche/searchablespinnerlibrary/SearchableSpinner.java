@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -128,6 +129,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         _searchableListDialog.setTitle(strTitle);
     }
 
+
     public void setPositiveButton(String strPositiveButtonText) {
         _searchableListDialog.setPositiveButton(strPositiveButtonText);
     }
@@ -158,6 +160,14 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         } else {
             return super.getSelectedItemPosition();
         }
+    }
+
+    public void setNoItemSelected() {
+        Log.d("SS", "setNoItemSelected: " + _strHintText + "   " + TextUtils.isEmpty(_strHintText) + "   " + _isDirty);
+        if ( _isDirty) {
+            _isDirty = false;
+        }
+        Log.d("SS", "setNoItemSelected: " + _strHintText + "   " + TextUtils.isEmpty(_strHintText) + "   " + _isDirty);
     }
 
     @Override

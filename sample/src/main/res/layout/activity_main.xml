@@ -17,4 +17,13 @@
         android:layout_height="wrap_content"
         android:entries="@array/planets"
         app:hintText="SEKECCTTT"/>
+
+    <Button
+        android:id="@+id/button"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner"
+        android:text="clear spinner"/>
 </RelativeLayout>
