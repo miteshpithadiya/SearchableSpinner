@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="SearchableSpinner">
         <attr name="hintText" format="string"/>
+        <attr name="setTitle" format="string"/>
     </declare-styleable>
 </resources>

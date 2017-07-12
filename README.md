@@ -21,12 +21,18 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     searchableSpinner.setTitle("Select Item");
     searchableSpinner.setPositiveButton("OK");
 
+    or
+    in xml file
+
+    app:setTitle="Title"
+    
+
 #Clear Selection
     
     searchableSpinner.setNoItemSelected();
 
     //Set your new searchableSpinner Adapter
-    
+
     
 # Changelog
  * <b>1.3.1</b>
