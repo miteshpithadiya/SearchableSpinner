@@ -25,9 +25,23 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     in xml file
 
     app:setTitle="Title"
-    
 
-#Clear Selection
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(searchableSpinner.isDialogOpen()) {
+            searchableSpinner.removeSearchableDialog();
+        }
+    }
+
+
+# Open Spinner Dialog Programmatically
+
+    searchableSpinner.openSearchableDialog();
+
+
+# Clear Selection
     
     searchableSpinner.setNoItemSelected();
 

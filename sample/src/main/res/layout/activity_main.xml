@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center"
     tools:context="com.toptoche.sample.MainActivity">
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
@@ -26,4 +27,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/spinner"
         android:text="clear spinner"/>
+
+    <Button
+        android:id="@+id/show_dialog"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button"
+        android:text="Open Spinner"/>
 </RelativeLayout>
