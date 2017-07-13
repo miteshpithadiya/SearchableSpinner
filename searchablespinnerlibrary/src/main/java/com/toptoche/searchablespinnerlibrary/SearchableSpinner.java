@@ -113,7 +113,6 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
                         .simple_list_item_1, new String[]{_strHintText});
                 super.setAdapter(arrayAdapter);
             } else {
-                _isDirty = false;
                 super.setAdapter(adapter);
             }
 
