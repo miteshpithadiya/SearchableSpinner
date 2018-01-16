@@ -20,6 +20,54 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 
     searchableSpinner.setTitle("Select Item");
     searchableSpinner.setPositiveButton("OK");
+
+    or
+    in xml file
+
+    app:setTitle="Title"
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(searchableSpinner.isDialogOpen()) {
+            searchableSpinner.removeSearchableDialog();
+        }
+    }
+
+
+# Custom List Items
+    
+    list_item.xml
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@android:id/text1"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:textAlignment="inherit"
+        android:textSize="15dp"
+        tools:text="New One" />
+
+    searchableSpinner.setListLayout(R.layout.list_item);
+
+
+
+# Open Spinner Dialog Programmatically
+
+    searchableSpinner.openSearchableDialog();
+
+
+# Clear Selection
+    
+    searchableSpinner.setNoItemSelected();
+
+    //Set your new searchableSpinner Adapter
+    //it will automatically clears the selection on setting a new adpater
+
     
 # Changelog
  * <b>1.3.1</b>
