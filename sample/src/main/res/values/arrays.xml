@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="starks">
+        <item>Robb</item>
+        <item>Sansa</item>
+        <item>Arya</item>
+        <item>Jon Snow</item>
+        <item>Brandon</item>
+        <item>Rickon</item>
+    </string-array>
+
+</resources>

@@ -1,15 +1,7 @@
 <resources>
-    <string name="app_name">Sample</string>
-
-    <string-array name="planets">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-        <item>Pluto</item>
-    </string-array>
+    <string name="app_name">Sample SearchableSpinner</string>
+    <string name="search_string_changed_to_x">Search string changed to \'%s\'</string>
+    <string name="you_know_nothing">You know nothing</string>
+    <string name="select_a_person">Select a Person</string>
+    <string name="answer">Answer</string>
 </resources>
