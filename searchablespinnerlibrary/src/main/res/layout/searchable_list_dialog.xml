@@ -12,7 +12,8 @@
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"/>
+        android:iconifiedByDefault="false"
+        android:imeOptions="flagNoExtractUi"/>
 
     <ListView
         android:id="@+id/listItems"
