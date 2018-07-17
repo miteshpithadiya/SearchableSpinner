@@ -14,11 +14,11 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchableListDialog extends DialogFragment implements
@@ -26,7 +26,7 @@ public class SearchableListDialog extends DialogFragment implements
 
     private static final String ITEMS = "items";
 
-    private ArrayAdapter listAdapter;
+    private SearchableAdapter listAdapter;
 
     private ListView _listViewItems;
 
@@ -152,12 +152,12 @@ public class SearchableListDialog extends DialogFragment implements
         mgr.hideSoftInputFromWindow(_searchView.getWindowToken(), 0);
 
 
-        List items = (List) getArguments().getSerializable(ITEMS);
+        ArrayList items = (ArrayList) getArguments().getSerializable(ITEMS);
 
         _listViewItems = (ListView) rootView.findViewById(R.id.listItems);
 
         //create the adapter by passing your ArrayList data
-        listAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1,
+        listAdapter = new SearchableAdapter(getActivity(), android.R.layout.simple_list_item_1,
                 items);
         //attach the adapter to the list
         _listViewItems.setAdapter(listAdapter);
@@ -196,9 +196,9 @@ public class SearchableListDialog extends DialogFragment implements
 //        listAdapter.filterData(s);
         if (TextUtils.isEmpty(s)) {
 //                _listViewItems.clearTextFilter();
-            ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(null);
+            listAdapter.getFilter().filter(null);
         } else {
-            ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(s);
+            listAdapter.getFilter().filter(s);
         }
         if (null != _onSearchTextChanged) {
             _onSearchTextChanged.onSearchTextChanged(s);
