@@ -42,8 +42,6 @@ public class SearchableListDialog extends DialogFragment implements
 
     private AdapterView.OnItemClickListener _onListItemClickListener;
 
-    private int _position;
-
     private DialogInterface.OnClickListener _onClickListener;
 
     public SearchableListDialog() {
@@ -140,12 +138,12 @@ public class SearchableListDialog extends DialogFragment implements
         this._onSearchTextChanged = onSearchTextChanged;
     }
 
-    public void setOnListItemClickListener(AdapterView.OnItemClickListener onListItemClickListener, int position) {
+    public void setOnListItemClickListener(AdapterView.OnItemClickListener onListItemClickListener) {
         _onListItemClickListener = onListItemClickListener;
-        _position = position;
     }
 
-    public void dismissDialog(){
+    public void updateText(int position){
+        _searchableItem.onSearchableItemClicked(listAdapter.getItem(position), position);
         getDialog().dismiss();
     }
 
@@ -178,7 +176,21 @@ public class SearchableListDialog extends DialogFragment implements
         _listViewItems.setTextFilterEnabled(true);
 
         _listViewItems.setOnItemClickListener(_onListItemClickListener);
-        _searchableItem.onSearchableItemClicked(listAdapter.getItem(_position), _position);
+
+        /* ================
+            If onListItemClickListener is not defined from the app
+            Use default implementation
+           ================ */
+
+        if(_onListItemClickListener == null) {
+            _listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    _searchableItem.onSearchableItemClicked(listAdapter.getItem(position), position);
+                    getDialog().dismiss();
+                }
+            });
+        }
     }
 
     @Override

@@ -140,12 +140,12 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         _searchableListDialog.setPositiveButton(strPositiveButtonText, onClickListener);
     }
 
-    public void setOnListItemClickListener(AdapterView.OnItemClickListener onItemClickListener, int position) {
-        _searchableListDialog.setOnListItemClickListener(onItemClickListener, position);
+    public void setOnListItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        _searchableListDialog.setOnListItemClickListener(onItemClickListener);
     }
 
-    public void dismissDialog(){
-        _searchableListDialog.dismissDialog();
+    public void updateText(int position){
+        _searchableListDialog.updateText(position);
     }
 
     public void setOnSearchTextChangedListener(SearchableListDialog.OnSearchTextChanged onSearchTextChanged) {
