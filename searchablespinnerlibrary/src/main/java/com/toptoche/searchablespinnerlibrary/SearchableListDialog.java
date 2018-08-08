@@ -40,6 +40,8 @@ public class SearchableListDialog extends DialogFragment implements
 
     private String _strPositiveButtonText;
 
+    private AdapterView.OnItemClickListener _onListItemClickListener;
+
     private DialogInterface.OnClickListener _onClickListener;
 
     public SearchableListDialog() {
@@ -136,6 +138,15 @@ public class SearchableListDialog extends DialogFragment implements
         this._onSearchTextChanged = onSearchTextChanged;
     }
 
+    public void setOnListItemClickListener(AdapterView.OnItemClickListener onListItemClickListener) {
+        _onListItemClickListener = onListItemClickListener;
+    }
+
+    public void updateText(int position){
+        _searchableItem.onSearchableItemClicked(listAdapter.getItem(position), position);
+        getDialog().dismiss();
+    }
+
     private void setData(View rootView) {
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context
                 .SEARCH_SERVICE);
@@ -164,13 +175,22 @@ public class SearchableListDialog extends DialogFragment implements
 
         _listViewItems.setTextFilterEnabled(true);
 
-        _listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                _searchableItem.onSearchableItemClicked(listAdapter.getItem(position), position);
-                getDialog().dismiss();
-            }
-        });
+        _listViewItems.setOnItemClickListener(_onListItemClickListener);
+
+        /* ================
+            If onListItemClickListener is not defined from the app
+            Use default implementation
+           ================ */
+
+        if(_onListItemClickListener == null) {
+            _listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    _searchableItem.onSearchableItemClicked(listAdapter.getItem(position), position);
+                    getDialog().dismiss();
+                }
+            });
+        }
     }
 
     @Override

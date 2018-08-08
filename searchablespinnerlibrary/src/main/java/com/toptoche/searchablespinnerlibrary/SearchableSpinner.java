@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -137,6 +138,14 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     public void setPositiveButton(String strPositiveButtonText, DialogInterface.OnClickListener onClickListener) {
         _searchableListDialog.setPositiveButton(strPositiveButtonText, onClickListener);
+    }
+
+    public void setOnListItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        _searchableListDialog.setOnListItemClickListener(onItemClickListener);
+    }
+
+    public void updateText(int position){
+        _searchableListDialog.updateText(position);
     }
 
     public void setOnSearchTextChangedListener(SearchableListDialog.OnSearchTextChanged onSearchTextChanged) {
