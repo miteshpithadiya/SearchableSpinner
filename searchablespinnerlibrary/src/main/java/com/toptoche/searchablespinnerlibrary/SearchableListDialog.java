@@ -40,6 +40,10 @@ public class SearchableListDialog extends DialogFragment implements
 
     private String _strPositiveButtonText;
 
+    private AdapterView.OnItemClickListener _onListItemClickListener;
+
+    private int _position;
+
     private DialogInterface.OnClickListener _onClickListener;
 
     public SearchableListDialog() {
@@ -136,6 +140,15 @@ public class SearchableListDialog extends DialogFragment implements
         this._onSearchTextChanged = onSearchTextChanged;
     }
 
+    public void setOnListItemClickListener(AdapterView.OnItemClickListener onListItemClickListener, int position) {
+        _onListItemClickListener = onListItemClickListener;
+        _position = position;
+    }
+
+    public void dismissDialog(){
+        getDialog().dismiss();
+    }
+
     private void setData(View rootView) {
         SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context
                 .SEARCH_SERVICE);
@@ -164,13 +177,8 @@ public class SearchableListDialog extends DialogFragment implements
 
         _listViewItems.setTextFilterEnabled(true);
 
-        _listViewItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                _searchableItem.onSearchableItemClicked(listAdapter.getItem(position), position);
-                getDialog().dismiss();
-            }
-        });
+        _listViewItems.setOnItemClickListener(_onListItemClickListener);
+        _searchableItem.onSearchableItemClicked(listAdapter.getItem(_position), _position);
     }
 
     @Override
