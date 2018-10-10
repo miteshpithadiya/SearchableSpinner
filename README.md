@@ -10,7 +10,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 # Gradle
     dependencies {
         ...
-        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
+        implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
     }
 
 # Usage
