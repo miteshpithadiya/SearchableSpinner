@@ -17,6 +17,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.List;
@@ -97,7 +100,9 @@ public class SearchableListDialog extends DialogFragment implements
         alertDialog.setPositiveButton(strPositiveButton, _onClickListener);
 
         String strTitle = _strTitle == null ? "Select Item" : _strTitle;
-        alertDialog.setTitle(strTitle);
+//        alertDialog.setTitle(strTitle);
+        TextView tvTitle = (TextView)rootView.findViewById(R.id.tv_title);
+        tvTitle.setText(strTitle);
 
         final AlertDialog dialog = alertDialog.create();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams

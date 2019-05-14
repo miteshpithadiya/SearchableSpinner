@@ -8,6 +8,15 @@
     android:paddingRight="8dp"
     android:paddingLeft="8dp">
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:text="@string/select_item"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <SearchView
         android:id="@+id/search"
         android:layout_width="match_parent"
