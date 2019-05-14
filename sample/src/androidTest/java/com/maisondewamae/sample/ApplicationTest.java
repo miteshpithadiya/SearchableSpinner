@@ -1,4 +1,4 @@
-package com.toptoche.sample;
+package com.maisondewamae.sample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

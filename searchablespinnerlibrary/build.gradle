@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/miteshpithadiya/SearchableSpinner'
     gitUrl = 'https://github.com/miteshpithadiya/SearchableSpinner.git'
 
-    libraryVersion = '1.3.1'
+    libraryVersion = '2.0.0'
 
     developerId = 'miteshpithadiya'
     developerName = 'Mitesh Pithadiya'
@@ -28,14 +28,14 @@ def siteUrl = 'https://github.com/miteshpithadiya/SearchableSpinner'
 def gitUrl = 'https://github.com/miteshpithadiya/SearchableSpinner.git'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 8
-        versionName "1.3.1"
+        versionName "2.0.0"
     }
     buildTypes {
     }
@@ -46,7 +46,7 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.3.1"
+version = "2.0.0"
 
 bintray {
     user = properties.getProperty("bintray.user")
@@ -120,6 +120,6 @@ artifacts {
     archives sourcesJar
 }
 
-task findConventions << {
+task findConventions {
     println project.getConvention()
 }

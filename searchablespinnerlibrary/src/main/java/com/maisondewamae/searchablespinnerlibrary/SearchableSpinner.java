@@ -1,4 +1,4 @@
-package com.toptoche.searchablespinnerlibrary;
+package com.maisondewamae.searchablespinnerlibrary;
 
 import android.app.Activity;
 import android.content.Context;
@@ -129,6 +129,10 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     public void setTitle(String strTitle) {
         _searchableListDialog.setTitle(strTitle);
+    }
+
+    public void setTitleGravity(int titleGravity) {
+        _searchableListDialog.setTitleGravity(titleGravity);
     }
 
     public void setPositiveButton(String strPositiveButtonText) {
