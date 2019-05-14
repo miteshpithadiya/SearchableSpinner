@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SearchableSpinnerLibrary</string>
+    <string name="select_item">Select Item</string>
 </resources>
