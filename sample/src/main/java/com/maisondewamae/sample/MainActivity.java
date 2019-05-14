@@ -1,4 +1,4 @@
-package com.toptoche.sample;
+package com.maisondewamae.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,5 +9,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        SearchableSpinner spinner = findViewById(R.id.spinner);
+//        spinner.setTitleGravity(Gravity.CENTER_HORIZONTAL);
     }
 }
