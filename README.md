@@ -9,10 +9,16 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 ![Alt text](https://github.com/miteshpithadiya/SearchableSpinner/blob/master/searchablespinnerlibrary/src/main/res/nobleltevzwLMY47XMeditab02192016201518.gif "Searchable Spinner")
 
 # Gradle
-    dependencies {
-        ...
-        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
-    }
+    	allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    	}
+
+    	dependencies {
+            implementation 'com.github.Wamae:SearchableSpinner-1:2.0.0'
+        }
 
 # Usage
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
