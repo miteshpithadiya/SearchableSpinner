@@ -1,4 +1,4 @@
-package com.toptoche.searchablespinnerlibrary;
+package com.maisondewamae.searchablespinnerlibrary;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,6 +39,8 @@ public class SearchableListDialog extends DialogFragment implements
     private SearchView _searchView;
 
     private String _strTitle;
+
+    private int _titleGravity = -1;
 
     private String _strPositiveButtonText;
 
@@ -100,9 +101,11 @@ public class SearchableListDialog extends DialogFragment implements
         alertDialog.setPositiveButton(strPositiveButton, _onClickListener);
 
         String strTitle = _strTitle == null ? "Select Item" : _strTitle;
-//        alertDialog.setTitle(strTitle);
-        TextView tvTitle = (TextView)rootView.findViewById(R.id.tv_title);
+        TextView tvTitle = rootView.findViewById(R.id.tv_title);
         tvTitle.setText(strTitle);
+
+        int titleGravity = _titleGravity == -1 ? Gravity.LEFT : _titleGravity;
+        tvTitle.setGravity(titleGravity);
 
         final AlertDialog dialog = alertDialog.create();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams
@@ -122,6 +125,10 @@ public class SearchableListDialog extends DialogFragment implements
 
     public void setTitle(String strTitle) {
         _strTitle = strTitle;
+    }
+
+    public void setTitleGravity(int titleGravity) {
+        _titleGravity = titleGravity;
     }
 
     public void setPositiveButton(String strPositiveButtonText) {

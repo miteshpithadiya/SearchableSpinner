@@ -1,4 +1,4 @@
-package com.toptoche.searchablespinnerlibrary;
+package com.maisondewamae.searchablespinnerlibrary;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
