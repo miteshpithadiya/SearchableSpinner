@@ -21,7 +21,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
         }
 
 # Usage
-    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+    <com.maisondewamae.searchablespinnerlibrary.SearchableSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
