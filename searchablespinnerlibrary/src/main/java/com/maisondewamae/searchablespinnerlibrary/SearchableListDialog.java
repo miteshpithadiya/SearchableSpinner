@@ -73,8 +73,7 @@ public class SearchableListDialog extends DialogFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams
-                .SOFT_INPUT_STATE_HIDDEN);
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -111,9 +110,11 @@ public class SearchableListDialog extends DialogFragment implements
         tvTitle.setGravity(titleGravity);
 
         final AlertDialog dialog = alertDialog.create();
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams
-                .SOFT_INPUT_STATE_HIDDEN);
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+        params.y = -100;
+        getActivity().getWindow().setAttributes(params);
 
         Button btnClose = rootView.findViewById(R.id.btn_close);
         initCloseButtonListener(btnClose, dialog);
