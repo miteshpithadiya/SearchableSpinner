@@ -35,7 +35,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 9
-        versionName "2.0.1"
+        versionName "2.0.4"
     }
     buildTypes {
     }
@@ -46,7 +46,7 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 
 apply plugin: 'com.jfrog.bintray'
 
-version = "2.0.0"
+version = "2.0.4"
 
 bintray {
     user = properties.getProperty("bintray.user")
