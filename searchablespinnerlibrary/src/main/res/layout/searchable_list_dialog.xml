@@ -2,39 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:paddingLeft="8dp"
     android:paddingTop="8dp"
-    android:paddingRight="8dp"
-    android:paddingLeft="8dp">
+    android:paddingRight="8dp">
 
     <TextView
         android:id="@+id/tv_title"
-        android:text="@string/select_item"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/select_item"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:textStyle="bold" />
 
     <SearchView
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"/>
+        android:iconifiedByDefault="false" />
 
     <ListView
         android:id="@+id/listItems"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_close"
-        android:text="@string/close"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:cornerRadius="25dp"
+        style="@style/ClearButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:text="@string/close" />
 
 </LinearLayout>
