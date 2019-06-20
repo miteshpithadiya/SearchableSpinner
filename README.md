@@ -16,7 +16,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     	}
 
     	dependencies {
-            implementation 'com.github.topche:SearchableSpinner-1:2.0.3'
+            implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:2.0.4'
         }
 
 # Usage
