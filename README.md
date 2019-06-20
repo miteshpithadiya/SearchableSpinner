@@ -2,7 +2,6 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SearchableSpinner-green.svg?style=true)](https://android-arsenal.com/details/1/3272)
 
 Spinner with searchable items.
-Adapted from https://github.com/miteshpithadiya/SearchableSpinner
 
 Searchable Spinner is a dialog spinner with the search feature which allows to search the items loaded in the spinner.
 
@@ -27,14 +26,8 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 
     searchableSpinner.setTitle("Select Item");
     searchableSpinner.setPositiveButton("OK");
-    searchableSpinner.setTitleGravity(Gravity.CENTER_HORIZONTAL);
     
 # Changelog
- * <b>2.0.0</b>
-     * Updates Gradle to 3.4.0
-     * Updates Gradle wrapper to 5.1.1
-     * Updates com.github.dcendents:android-maven-gradle-plugin:2.1
-     * Center searchable spinner title
  * <b>1.3.1</b>
     * Bug fixes.
  * <b>1.3.0</b>

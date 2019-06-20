@@ -1,4 +1,4 @@
-package com.maisondewamae.searchablespinnerlibrary;
+package com.toptoche.searchablespinnerlibrary;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-
+import com.maisondewamae.searchablespinnerlibrary.R;
 import java.io.Serializable;
 import java.util.List;
 
@@ -73,7 +73,8 @@ public class SearchableListDialog extends DialogFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams
+                .SOFT_INPUT_STATE_HIDDEN);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

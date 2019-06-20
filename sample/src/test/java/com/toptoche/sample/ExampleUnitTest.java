@@ -1,4 +1,4 @@
-package com.maisondewamae.sample;
+package com.toptoche.sample;
 
 import org.junit.Test;
 
