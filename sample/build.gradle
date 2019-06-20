@@ -22,7 +22,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-//    implementation 'com.github.Wamae:SearchableSpinner:2.0.0'
+    implementation 'com.github.kopokopo:SearchableSpinner:2.0.0'
     implementation 'com.google.android.material:material:1.1.0-alpha07'
-    implementation project(':searchablespinnerlibrary')
+//    implementation project(':searchablespinnerlibrary')
 }
