@@ -16,7 +16,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     	}
 
     	dependencies {
-            implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:2.0.4'
+            implementation 'com.github.kopokopo:SearchableSpinner:2.0.0'
         }
 
 # Usage
@@ -29,16 +29,12 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     searchableSpinner.setPositiveButton("OK");
     
 # Changelog
- * <b>2.0.3</b>
-    * (In progress) Updates margins and padding.
- * <b>2.0.2</b>
-    * Changes style of the searchable spinner to material.
- * <b>2.0.1</b>
-    * Updates sample app to use release 2.0.1.
- * <b>2.0.1</b>
-    * Adds new library version as a dependency in the sample app.
  * <b>2.0.0</b>
     * Adds functionality to set title gravity.
+    * Adds new library version as a dependency in the sample app.
+    * Updates sample app to use release 2.0.1.
+    * Changes style of the searchable spinner to material.
+    * Updates margins and padding.
  * <b>1.3.1</b>
     * Bug fixes.
  * <b>1.3.0</b>
