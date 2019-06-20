@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import com.maisondewamae.searchablespinnerlibrary.R;
+
 import java.io.Serializable;
 import java.util.List;
 
