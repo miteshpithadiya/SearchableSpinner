@@ -16,18 +16,29 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
     	}
 
     	dependencies {
-            implementation 'com.github.Wamae:SearchableSpinner-1:2.0.0'
+            implementation 'com.github.topche:SearchableSpinner-1:2.0.4'
         }
 
 # Usage
-    <com.maisondewamae.searchablespinnerlibrary.SearchableSpinner
+    <com.topche.searchablespinnerlibrary.SearchableSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     searchableSpinner.setTitle("Select Item");
+    searchableSpinner.setTitleGravity(Gravity.CENTER_HORIZONTAL);
     searchableSpinner.setPositiveButton("OK");
     
 # Changelog
+ * <b>2.0.3</b>
+    * (In progress) Updates margins and padding.
+ * <b>2.0.2</b>
+    * Changes style of the searchable spinner to material.
+ * <b>2.0.1</b>
+    * Updates sample app to use release 2.0.1.
+ * <b>2.0.1</b>
+    * Adds new library version as a dependency in the sample app.
+ * <b>2.0.0</b>
+    * Adds functionality to set title gravity.
  * <b>1.3.1</b>
     * Bug fixes.
  * <b>1.3.0</b>
@@ -43,7 +54,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
  * <b>1.0.2</b>
     * Resolved the multidex issue.
  * <b>1.0.0</b>
-    * Initial Release
+    * Initial Release.
 
 # License
 
