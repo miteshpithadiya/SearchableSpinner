@@ -131,6 +131,10 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         _searchableListDialog.setTitle(strTitle);
     }
 
+    public void setTitleGravity(int gravity) {
+        _searchableListDialog.setTitleGravity(gravity);
+    }
+
     public void setPositiveButton(String strPositiveButtonText) {
         _searchableListDialog.setPositiveButton(strPositiveButtonText);
     }
