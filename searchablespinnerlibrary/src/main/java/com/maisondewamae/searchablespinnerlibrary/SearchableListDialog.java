@@ -112,9 +112,6 @@ public class SearchableListDialog extends DialogFragment implements
         final AlertDialog dialog = alertDialog.create();
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
-        params.y = -100;
-        getActivity().getWindow().setAttributes(params);
 
         Button btnClose = rootView.findViewById(R.id.btn_close);
         initCloseButtonListener(btnClose, dialog);
