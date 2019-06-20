@@ -12,4 +12,6 @@
         <item>Neptune</item>
         <item>Pluto</item>
     </string-array>
+
+    <string name="close">close</string>
 </resources>

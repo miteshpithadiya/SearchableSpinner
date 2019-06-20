@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,10 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-
+import android.widget.TextView;
 import java.io.Serializable;
 import java.util.List;
 
@@ -38,9 +40,12 @@ public class SearchableListDialog extends DialogFragment implements
 
     private String _strTitle;
 
+    private int _titleGravity = -1;
+
     private String _strPositiveButtonText;
 
     private DialogInterface.OnClickListener _onClickListener;
+    TextView tvTitle;
 
     public SearchableListDialog() {
 
@@ -93,16 +98,34 @@ public class SearchableListDialog extends DialogFragment implements
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setView(rootView);
 
-        String strPositiveButton = _strPositiveButtonText == null ? "CLOSE" : _strPositiveButtonText;
-        alertDialog.setPositiveButton(strPositiveButton, _onClickListener);
+        /*String strPositiveButton = _strPositiveButtonText == null ? "CLOSE" : _strPositiveButtonText;
+        alertDialog.setPositiveButton(strPositiveButton, _onClickListener);*/
+
 
         String strTitle = _strTitle == null ? "Select Item" : _strTitle;
-        alertDialog.setTitle(strTitle);
+        tvTitle = rootView.findViewById(R.id.tv_title);
+        tvTitle.setText(strTitle);
+
+        int titleGravity = _titleGravity == -1 ? Gravity.START : _titleGravity;
+        tvTitle.setGravity(titleGravity);
 
         final AlertDialog dialog = alertDialog.create();
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams
-                .SOFT_INPUT_STATE_HIDDEN);
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+
+        Button btnClose = rootView.findViewById(R.id.btn_close);
+        initCloseButtonListener(btnClose, dialog);
+
         return dialog;
+    }
+
+    private void initCloseButtonListener(Button btnClose, final AlertDialog dialog) {
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     // Crash on orientation change #7
@@ -117,6 +140,10 @@ public class SearchableListDialog extends DialogFragment implements
 
     public void setTitle(String strTitle) {
         _strTitle = strTitle;
+    }
+
+    public void setTitleGravity(int titleGravity) {
+        _titleGravity = titleGravity;
     }
 
     public void setPositiveButton(String strPositiveButtonText) {
@@ -179,8 +206,7 @@ public class SearchableListDialog extends DialogFragment implements
     }
 
     @Override
-    public void onPause()
-    {
+    public void onPause() {
         super.onPause();
         dismiss();
     }

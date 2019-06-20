@@ -8,20 +8,33 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
 ![Alt text](https://github.com/miteshpithadiya/SearchableSpinner/blob/master/searchablespinnerlibrary/src/main/res/nobleltevzwLMY47XMeditab02192016201518.gif "Searchable Spinner")
 
 # Gradle
-    dependencies {
-        ...
-        compile 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
-    }
+    	allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    	}
+
+    	dependencies {
+            implementation 'com.github.kopokopo:SearchableSpinner:2.0.0'
+        }
 
 # Usage
-    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+    <com.topche.searchablespinnerlibrary.SearchableSpinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     searchableSpinner.setTitle("Select Item");
+    searchableSpinner.setTitleGravity(Gravity.CENTER_HORIZONTAL);
     searchableSpinner.setPositiveButton("OK");
     
 # Changelog
+ * <b>2.0.0</b>
+    * Adds functionality to set title gravity.
+    * Adds new library version as a dependency in the sample app.
+    * Updates sample app to use release 2.0.1.
+    * Changes style of the searchable spinner to material.
+    * Updates margins and padding.
  * <b>1.3.1</b>
     * Bug fixes.
  * <b>1.3.0</b>
@@ -37,7 +50,7 @@ Searchable Spinner is a dialog spinner with the search feature which allows to s
  * <b>1.0.2</b>
     * Resolved the multidex issue.
  * <b>1.0.0</b>
-    * Initial Release
+    * Initial Release.
 
 # License
 
