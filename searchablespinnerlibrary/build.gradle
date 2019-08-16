@@ -65,7 +65,7 @@ bintray {
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = "com.toptoche.searchablespinner"
+group = "com.github.AbijayAnand"
 
 install {
     repositories.mavenInstaller {
