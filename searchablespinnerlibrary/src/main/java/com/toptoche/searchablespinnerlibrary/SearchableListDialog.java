@@ -17,8 +17,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchableListDialog extends DialogFragment implements
@@ -41,6 +41,10 @@ public class SearchableListDialog extends DialogFragment implements
     private String _strPositiveButtonText;
 
     private DialogInterface.OnClickListener _onClickListener;
+
+    private int oldTextLength;
+
+    private List<String> items;
 
     public SearchableListDialog() {
 
@@ -152,7 +156,7 @@ public class SearchableListDialog extends DialogFragment implements
         mgr.hideSoftInputFromWindow(_searchView.getWindowToken(), 0);
 
 
-        List items = (List) getArguments().getSerializable(ITEMS);
+        items = (List) getArguments().getSerializable(ITEMS);
 
         _listViewItems = (ListView) rootView.findViewById(R.id.listItems);
 
@@ -196,9 +200,18 @@ public class SearchableListDialog extends DialogFragment implements
 //        listAdapter.filterData(s);
         if (TextUtils.isEmpty(s)) {
 //                _listViewItems.clearTextFilter();
+            if (_searchableItem.fullSearchOnTextNeeded()) {
+                _listViewItems.setAdapter(new ArrayAdapter<String>(
+                    ((ArrayAdapter) _listViewItems.getAdapter()).getContext(),
+                    android.R.layout.simple_spinner_dropdown_item, items));
+            }
             ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(null);
         } else {
-            ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(s);
+            if (_searchableItem.fullSearchOnTextNeeded()) {
+                filterAdapterWithFullSearchForString(s);
+            } else {
+                ((ArrayAdapter) _listViewItems.getAdapter()).getFilter().filter(s);
+            }
         }
         if (null != _onSearchTextChanged) {
             _onSearchTextChanged.onSearchTextChanged(s);
@@ -206,8 +219,32 @@ public class SearchableListDialog extends DialogFragment implements
         return true;
     }
 
+    private void filterAdapterWithFullSearchForString(String s) {
+        if (s.length() < oldTextLength) {
+            _listViewItems.setAdapter(new ArrayAdapter<String>(
+                ((ArrayAdapter) _listViewItems.getAdapter()).getContext(),
+                android.R.layout.simple_spinner_dropdown_item, items));
+        }
+
+        oldTextLength = s.length();
+        List<String> result = new ArrayList<>();
+
+        for (int i = 0; i < (_listViewItems.getAdapter()).getCount(); i++) {
+            if (_listViewItems.getAdapter().getItem(i).toString().toLowerCase()
+                .contains(s.toLowerCase())) {
+                result.add(_listViewItems.getAdapter().getItem(i).toString());
+            }
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+            ((ArrayAdapter) _listViewItems.getAdapter()).getContext(),
+            android.R.layout.simple_spinner_dropdown_item, result);
+        _listViewItems.setAdapter(adapter);
+    }
+
     public interface SearchableItem<T> extends Serializable {
         void onSearchableItemClicked(T item, int position);
+
+        boolean fullSearchOnTextNeeded();
     }
 
     public interface OnSearchTextChanged {

@@ -29,7 +29,7 @@ def gitUrl = 'https://github.com/miteshpithadiya/SearchableSpinner.git'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 15
@@ -38,6 +38,10 @@ android {
         versionName "1.3.1"
     }
     buildTypes {
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -65,7 +69,7 @@ bintray {
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = "com.toptoche.searchablespinner"
+group = "com.github.AbijayAnand"
 
 install {
     repositories.mavenInstaller {
