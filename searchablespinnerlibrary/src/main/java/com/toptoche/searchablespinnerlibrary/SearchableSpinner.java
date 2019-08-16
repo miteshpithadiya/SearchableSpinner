@@ -28,7 +28,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     private ArrayAdapter _arrayAdapter;
     private String _strHintText;
     private boolean _isFromInit;
-    private boolean _fullTextSearchRequired = false;
+    public boolean _fullTextSearchRequired = false;
 
     public SearchableSpinner(Context context) {
         super(context);
