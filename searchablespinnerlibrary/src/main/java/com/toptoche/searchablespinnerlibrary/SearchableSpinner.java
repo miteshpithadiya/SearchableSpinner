@@ -28,6 +28,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     private ArrayAdapter _arrayAdapter;
     private String _strHintText;
     private boolean _isFromInit;
+    private boolean _fullTextSearchRequired = false;
 
     public SearchableSpinner(Context context) {
         super(context);
@@ -104,7 +105,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
             _arrayAdapter = (ArrayAdapter) adapter;
             if (!TextUtils.isEmpty(_strHintText) && !_isDirty) {
                 ArrayAdapter arrayAdapter = new ArrayAdapter(_context, android.R.layout
-                        .simple_list_item_1, new String[]{_strHintText});
+                    .simple_list_item_1, new String[]{_strHintText});
                 super.setAdapter(arrayAdapter);
             } else {
                 super.setAdapter(adapter);
@@ -127,6 +128,11 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         }
     }
 
+    @Override
+    public boolean fullSearchOnTextNeeded() {
+        return _fullTextSearchRequired;
+    }
+
     public void setTitle(String strTitle) {
         _searchableListDialog.setTitle(strTitle);
     }
@@ -141,6 +147,14 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     public void setOnSearchTextChangedListener(SearchableListDialog.OnSearchTextChanged onSearchTextChanged) {
         _searchableListDialog.setOnSearchTextChangedListener(onSearchTextChanged);
+    }
+
+    public boolean isFullTextSearchRequired() {
+        return _fullTextSearchRequired;
+    }
+
+    public void setFullTextSearchRequired(boolean fullTextSearchRequired) {
+        this._fullTextSearchRequired = fullTextSearchRequired;
     }
 
     private Activity scanForActivity(Context cont) {
