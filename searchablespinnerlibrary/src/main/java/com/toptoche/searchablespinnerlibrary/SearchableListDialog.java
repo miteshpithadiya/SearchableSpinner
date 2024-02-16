@@ -96,7 +96,7 @@ public class SearchableListDialog extends DialogFragment implements
         String strPositiveButton = _strPositiveButtonText == null ? "Cerrar" : _strPositiveButtonText;
         alertDialog.setPositiveButton(strPositiveButton, _onClickListener);
 
-        String strTitle = _strTitle == null ? "Seleccionar Marca" : _strTitle;
+        String strTitle = _strTitle == null ? "Seleccionar Finca" : _strTitle;
         alertDialog.setTitle(strTitle);
 
         final AlertDialog dialog = alertDialog.create();
