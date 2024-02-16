@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
-import android.text.TextUtils;
+import android.text.TextUtils; 
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,7 +16,7 @@ import android.widget.SpinnerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchableSpinner extends Spinner implements View.OnTouchListener,
+public class SearchableSpinnerFinca extends Spinner implements View.OnTouchListener,
         SearchableListDialog.SearchableItem {
 
     public static final int NO_ITEM_SELECTED = -1;
@@ -29,20 +29,20 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     private String _strHintText;
     private boolean _isFromInit;
 
-    public SearchableSpinner(Context context) {
+    public SearchableSpinnerFinca(Context context) {
         super(context);
         this._context = context;
         init();
     }
 
-    public SearchableSpinner(Context context, AttributeSet attrs) {
+    public SearchableSpinnerFinca(Context context, AttributeSet attrs) {
         super(context, attrs);
         this._context = context;
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SearchableSpinner);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SearchableSpinnerFinca);
         final int N = a.getIndexCount();
         for (int i = 0; i < N; ++i) {
             int attr = a.getIndex(i);
-            if (attr == R.styleable.SearchableSpinner_hintText) {
+            if (attr == R.styleable.SearchableSpinnerFinca_hintText) {
                 _strHintText = a.getString(attr);
             }
         }
@@ -50,7 +50,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         init();
     }
 
-    public SearchableSpinner(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SearchableSpinnerFinca(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this._context = context;
         init();
